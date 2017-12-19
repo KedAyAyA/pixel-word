@@ -22,3 +22,20 @@
   <canvas id="pixel-word" width="600" height="500"></canvas>
 <script type="text/javascript" src="/bundle.js"></script></body>
 </html>
+<script>
+  function fn (num) {
+    if (typeof num !== 'number') {
+      return
+    }
+    var map = {}
+    var res = []
+    while (res.length !== num) {
+      var random = parseInt((Math.random() * 30) + 2)
+      if (!map[random]) {
+        map[random] = true
+        res.push(random)
+      }
+    }
+    return res
+  }
+</script>
