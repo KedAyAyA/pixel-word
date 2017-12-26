@@ -43,8 +43,8 @@ export default class PixelWord {
 
   _initCanvas (dom) {
     this.canvas = dom
-    this.canvas.width = this.options.width
-    this.canvas.height = this.options.height
+    this.canvas.width = this.options.width * 2
+    this.canvas.height = this.options.height * 2
     this.canvas.style.width = this.options.width + 'px'
     this.canvas.style.height = this.options.height + 'px'
     this.ctx = this.canvas.getContext('2d')
