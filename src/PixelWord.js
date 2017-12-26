@@ -1,4 +1,3 @@
-import WordsFactory from './WordFactory.js'
 import WordFactory from './WordFactory.js';
 
 export default class PixelWord {
@@ -22,7 +21,7 @@ export default class PixelWord {
     this.options = {
       cols: 30,
       rows: 7,
-      size: 4,
+      size: 10,
       backgroundColor: '#eee',
       padding: 1,
       top: 10,
@@ -30,13 +29,24 @@ export default class PixelWord {
       words: [],
       wordColor: 'rgb(123, 201, 111)',
       xGap: 1,
-      yGap: 1
+      yGap: 1,
+      width: 600,
+      height: 400
     }
-    Object.assign(this.options, options)
+    // 屏幕的设备像素比
+    var devicePixelRatio = window.devicePixelRatio || 1
+
+    Object.assign(this.options, options, {
+      radio: devicePixelRatio
+    })
   }
 
   _initCanvas (dom) {
     this.canvas = dom
+    this.canvas.width = this.options.width
+    this.canvas.height = this.options.height
+    this.canvas.style.width = this.options.width + 'px'
+    this.canvas.style.height = this.options.height + 'px'
     this.ctx = this.canvas.getContext('2d')
   }
 
